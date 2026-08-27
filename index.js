@@ -2,7 +2,7 @@ import express from "express";
 import { randomUUID } from "node:crypto";
 import { serve } from "inngest/express";
 import { inngest } from "./src/inngest/client.js";
-import { sayHello, makeReport } from "./src/inngest/functions.js";
+import { sayHello, makeReport, heartbeat } from "./src/inngest/functions.js";
 import { reports } from "./src/store.js";
 
 const app = express();
@@ -14,7 +14,7 @@ app.get("/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
-app.use("/api/inngest", serve({ client: inngest, functions: [sayHello, makeReport] }));
+app.use("/api/inngest", serve({ client: inngest, functions: [sayHello, makeReport, heartbeat] }));
 
 app.post("/reports", async (req, res) => {
   const { topic } = req.body ?? {};
