@@ -68,19 +68,9 @@ A **retry** re-runs a job that failed *at the wrong moment* (a flaky network cal
 
 ## Dashboard
 
-Runs view (`localhost:8288/runs`) captured during testing — a completed `make-report`, a failed `make-report` (plus its `make-report (failure)` handler), and five `heartbeat` cron runs one minute apart:
+Runs view (`localhost:8288/runs`) — a completed `make-report`, a failed `make-report` (plus its `make-report (failure)` handler), and repeated `heartbeat` cron runs one minute apart:
 
-| Status | Run ID | Trigger | Function | Queued at | Ended at |
-|---|---|---|---|---|---|
-| Completed | `01M118AKEXWKQE0V86KJVW02BN` | `report/requested` | make-report | 27.08.2026 12:20:27 | 27.08.2026 12:20:35 |
-| Completed | `01M1189RFRXF4CYZG5CFCTA129` | cron | heartbeat | 27.08.2026 12:19:59 | 27.08.2026 12:20:00 |
-| Completed | `01M1187XWDFQE159W588J7HC24` | cron | heartbeat | 27.08.2026 12:18:59 | 27.08.2026 12:19:00 |
-| Completed | `01M118639N6ON5GGQ4MMQ0ZM7R` | cron | heartbeat | 27.08.2026 12:17:59 | 27.08.2026 12:18:00 |
-| Completed | `01M1182E3R9H0GRAGTX492YFAD` | cron | heartbeat | 27.08.2026 12:16:59 | 27.08.2026 12:17:00 |
-| Completed | `01M1180BPSJ7XW42CZFCY8TNY9` | `inngest/function.failed` | make-report (failure) | 27.08.2026 12:14:51 | 27.08.2026 12:14:52 |
-| Failed | `01M117XMTDCZ9N63HR1YC7K8H3` | `report/requested` | make-report | 27.08.2026 12:13:23 | 27.08.2026 12:14:51 |
-
-(A live screenshot from `localhost:8288/runs` can be dropped in here too — the table above is the same data pulled straight from that page.)
+![Inngest Dev Server runs view](docs/dashboard.png)
 
 ## AI vs me
 
